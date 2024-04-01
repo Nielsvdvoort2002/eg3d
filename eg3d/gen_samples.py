@@ -153,7 +153,12 @@ def generate_images(
 
     os.makedirs(outdir, exist_ok=True)
 
-    cam2world_pose = LookAtPoseSampler.sample(3.14/2, 3.14/2, torch.tensor([0, 0, 0.2], device=device), radius=2.7, device=device)
+    cam2world_pose = LookAtPoseSampler.sample(
+        np.pi/2, 
+        np.pi/2, 
+        torch.tensor([0, 0, 0.2], device=device), 
+        radius=2.7, 
+        device=device)
     intrinsics = FOV_to_intrinsics(fov_deg, device=device)
 
     # Generate images.
